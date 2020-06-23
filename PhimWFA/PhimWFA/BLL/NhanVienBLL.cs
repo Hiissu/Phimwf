@@ -23,11 +23,6 @@ namespace PhimWFA.BLL
             return obj_nv.HienThiTatCaNhanVien();
         }
 
-        public NhanVienDTO HienThiTTNhanVien(object idNV)
-        {
-            return obj_nv.HienThiTTNhanVien(idNV);
-        }
-
         public void ThemNhanVien(NhanVienDTO obj)
         {
             obj_nv.ThemNhanVien(obj);

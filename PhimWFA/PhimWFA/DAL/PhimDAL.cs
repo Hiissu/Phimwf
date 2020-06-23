@@ -35,18 +35,9 @@ namespace PhimWFA.DAL
 
         public void ThemPhim(PhimDTO obj)
         {
-            string truyvan = "INSERT INTO [dbo].[Phim] ";
-            truyvan += "([id]";
-            truyvan += ",[ten]";
-            truyvan += ",[theloai]";
-            truyvan += ",[quocgia]";
-            truyvan += ",[diemdanhgia]) ";
-            truyvan += "VALUES ";
-            truyvan += "('" + obj.Id;
-            truyvan += "','" + obj.Ten;
-            truyvan += "','" + obj.Theloai;
-            truyvan += "','" + obj.Quocgia;
-            truyvan += "','" + obj.DiemDanhGia + "')";
+            string truyvan = $"INSERT INTO " +
+                $"[dbo].[Phim]([id], [ten], [theloai], [quocgia], [diemdanhgia]) " +
+                $"VALUES ('{obj.Id}', '{obj.Ten}', '{obj.Theloai}', '{obj.Quocgia}', '{obj.DiemDanhGia}')";
 
             SqlCommand cmd = new SqlCommand();
             cmd.CommandType = CommandType.Text;
@@ -58,13 +49,10 @@ namespace PhimWFA.DAL
 
         public void CapNhatTTPhim(PhimDTO obj, object idPhim)
         {
-            string truyvan = " UPDATE [dbo].[Phim] SET ";
-            truyvan += "[id] = '" + obj.Id;
-            truyvan += "', [ten] = '" + obj.Ten;
-            truyvan += "', [theloai] = '" + obj.Theloai;
-            truyvan += "', [quocgia] = '" + obj.Quocgia;
-            truyvan += "', [diemdanhgia] = '" + obj.DiemDanhGia;
-            truyvan += "WHERE [id] = '" + idPhim + "'";
+            string truyvan = $"UPDATE [dbo].[Phim] " +
+                $"SET [id] = '{obj.Id}', [ten] = '{obj.Ten}', [theloai] = '{obj.Theloai}', " +
+                    $"[quocgia] = '{obj.Quocgia}', [diemdanhgia] = '{obj.DiemDanhGia}' " +
+                $"WHERE [id] = '{idPhim}'";
                              
             SqlCommand cmd = new SqlCommand();
             cmd.CommandType = CommandType.Text;
@@ -75,7 +63,8 @@ namespace PhimWFA.DAL
 
         public void XoaPhim(object idPhim)
         {
-            string truyvan = "DELETE FROM [dbo].[Phim] WHERE [id] = '" + idPhim + "'";
+            string truyvan = $"DELETE FROM [dbo].[TTPhim] WHERE [id_phim] = '{idPhim}' " +
+                $"DELETE FROM [dbo].[Phim] WHERE [id] = '{idPhim}'";
 
             SqlCommand cmd = new SqlCommand();
             cmd.CommandType = CommandType.Text;
@@ -139,6 +128,51 @@ namespace PhimWFA.DAL
             }
 
             return dtable;
+        }
+
+        public void XoaNhanVien(string idPhim)
+        {
+            string truyvan = $"DELETE FROM [dbo].[TTPhim] WHERE id_phim = '{idPhim}'";
+
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandType = CommandType.Text;
+            cmd.CommandText = truyvan;
+
+            base.GhiDuLieu(cmd);
+        }
+
+        public void CapNhatNhanVien(string idPhim, string idNV)
+        {
+            string truyvan = $"INSERT INTO [dbo].[TTPhim] VALUES ('{idPhim}', '{idNV}') ";
+            
+
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandType = CommandType.Text;
+            cmd.CommandText = truyvan;
+
+            base.GhiDuLieu(cmd);
+        }
+
+        public void XoaRap(string idPhim)
+        {
+            string truyvan = $"DELETE FROM [dbo].[TTRap] WHERE id_phim = '{idPhim}'";
+
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandType = CommandType.Text;
+            cmd.CommandText = truyvan;
+
+            base.GhiDuLieu(cmd);
+        }
+
+        public void CapNhatRap(string idPhim, string idRap)
+        {
+            string truyvan = $"INSERT INTO [dbo].[TTRap] VALUES ('{idPhim}', '{idRap}') ";
+
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandType = CommandType.Text;
+            cmd.CommandText = truyvan;
+
+            base.GhiDuLieu(cmd);
         }
 
     }

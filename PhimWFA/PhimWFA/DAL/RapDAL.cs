@@ -17,7 +17,7 @@ namespace PhimWFA.DAL
             DataTable dtable = new DataTable();
             dtable = null;
 
-            string truyvan = "SELECT * FROM dbo.Rap";
+            string truyvan = "SELECT id as IdRap, ten as TenRap, diachi as DiaChi FROM dbo.Rap "; 
 
             SqlCommand cmd = new SqlCommand();
             cmd.CommandType = CommandType.Text;
@@ -32,41 +32,10 @@ namespace PhimWFA.DAL
             return dtable;
         }
 
-
-        public RapDTO HienThiTTRap(object maRap)
-        {
-            RapDTO obj = new RapDTO();
-            string truyvan = "SELECT * FROM dbo.Rap WHERE id = " + maRap;
-
-            SqlCommand cmd = new SqlCommand();
-            cmd.CommandType = CommandType.Text;
-            cmd.CommandText = truyvan;
-
-            DataSet ds = base.DocDuLieu(cmd);
-            DataRow drow = null;
-
-            if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
-            {
-                drow = ds.Tables[0].Rows[0];
-                obj.Ten = drow["Ten NSX"].ToString();
-                obj.Id = drow["Ma NSX"].ToString();
-                obj.Diachi = drow["Dia Diem"].ToString();
-            }
-
-            return obj;
-        }
-
-
         public void ThemRap(RapDTO obj)
         {
-            string truyvan = "INSERT INTO[dbo].[Rap] ";
-            truyvan += "(id";
-            truyvan += ",[ten]";
-            truyvan += ",[diachi]";
-            truyvan += "VALUES ";
-            truyvan += "('" + obj.Id;
-            truyvan += "','" + obj.Ten;
-            truyvan += "('" + obj.Diachi + "')";
+            string truyvan = $"INSERT INTO [dbo].[Rap] VALUES " +
+                $"('{obj.Id}', '{obj.Ten}', '{obj.Diachi}')";
 
             SqlCommand cmd = new SqlCommand();
             cmd.CommandType = CommandType.Text;
@@ -78,11 +47,9 @@ namespace PhimWFA.DAL
 
         public void CapNhatTTRap(RapDTO obj, object idRap)
         {
-            string truyvan = " UPDATE [dbo].[Rap] SET ";
-            truyvan += "[id] = '" + obj.Id;
-            truyvan += "', [ten] = '" + obj.Ten;
-            truyvan += "', [diachi] = '" + obj.Diachi;
-            truyvan += "WHERE [id] = '" + idRap + "'";
+            string truyvan = $"UPDATE [dbo].[Rap] SET " +
+                $"[id] = '{obj.Id}', [ten] = '{obj.Ten}', [diachi] = '{obj.Diachi}' " +
+                $"WHERE [id] = '{idRap}'";
 
             SqlCommand cmd = new SqlCommand();
             cmd.CommandType = CommandType.Text;
@@ -93,7 +60,8 @@ namespace PhimWFA.DAL
 
         public void XoaRap(object idRap)
         {
-            string truyvan = "DELETE FROM [dbo].[Rap] WHERE [id] = '" + idRap + "'";
+            string truyvan = $"DELETE FROM [dbo].[TTRap] WHERE [id_rap] = '{idRap}' " +
+                $"DELETE FROM [dbo].[Rap] WHERE [id] = '{idRap}'";
 
             SqlCommand cmd = new SqlCommand();
             cmd.CommandType = CommandType.Text;

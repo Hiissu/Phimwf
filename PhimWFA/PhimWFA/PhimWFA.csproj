@@ -56,6 +56,24 @@
     <Compile Include="DTO\NhanVienDTO.cs" />
     <Compile Include="DTO\PhimDTO.cs" />
     <Compile Include="DTO\RapDTO.cs" />
+    <Compile Include="frmCapNhatNV.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCapNhatNV.Designer.cs">
+      <DependentUpon>frmCapNhatNV.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmCapNhatRap.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCapNhatRap.Designer.cs">
+      <DependentUpon>frmCapNhatRap.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmHome.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmHome.Designer.cs">
+      <DependentUpon>frmHome.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmNhanVien.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -70,20 +88,29 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="frmRapChieu.cs">
+    <Compile Include="frmRapPhim.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmRapChieu.Designer.cs">
-      <DependentUpon>frmRapChieu.cs</DependentUpon>
+    <Compile Include="frmRapPhim.Designer.cs">
+      <DependentUpon>frmRapPhim.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="frmCapNhatNV.resx">
+      <DependentUpon>frmCapNhatNV.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmCapNhatRap.resx">
+      <DependentUpon>frmCapNhatRap.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmHome.resx">
+      <DependentUpon>frmHome.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmPhim.resx">
       <DependentUpon>frmPhim.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmNhanVien.resx">
       <DependentUpon>frmNhanVien.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmRapChieu.resx">
-      <DependentUpon>frmRapChieu.cs</DependentUpon>
+    <EmbeddedResource Include="frmRapPhim.resx">
+      <DependentUpon>frmRapPhim.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

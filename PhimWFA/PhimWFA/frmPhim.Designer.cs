@@ -46,8 +46,8 @@
             this.cbTheLoai = new System.Windows.Forms.ComboBox();
             this.cbQuocGia = new System.Windows.Forms.ComboBox();
             this.cbRapChieu = new System.Windows.Forms.ComboBox();
-            this.btThemNV = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btCapNhatNV = new System.Windows.Forms.Button();
+            this.btCapNhatRap = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.grvPhim)).BeginInit();
             this.SuspendLayout();
             // 
@@ -110,7 +110,7 @@
             this.cbNhanVien.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbNhanVien.FormattingEnabled = true;
             this.cbNhanVien.Location = new System.Drawing.Point(702, 54);
-            this.cbNhanVien.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.cbNhanVien.Margin = new System.Windows.Forms.Padding(5);
             this.cbNhanVien.Name = "cbNhanVien";
             this.cbNhanVien.Size = new System.Drawing.Size(410, 28);
             this.cbNhanVien.TabIndex = 35;
@@ -129,9 +129,9 @@
             this.label2.Location = new System.Drawing.Point(22, 19);
             this.label2.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(65, 20);
+            this.label2.Size = new System.Drawing.Size(75, 20);
             this.label2.TabIndex = 13;
-            this.label2.Text = "Id Phim";
+            this.label2.Text = "Mã Phim";
             // 
             // label3
             // 
@@ -203,20 +203,18 @@
             // 
             // cbTheLoai
             // 
-            this.cbTheLoai.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbTheLoai.FormattingEnabled = true;
             this.cbTheLoai.Location = new System.Drawing.Point(111, 86);
-            this.cbTheLoai.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.cbTheLoai.Margin = new System.Windows.Forms.Padding(5);
             this.cbTheLoai.Name = "cbTheLoai";
             this.cbTheLoai.Size = new System.Drawing.Size(410, 28);
             this.cbTheLoai.TabIndex = 31;
             // 
             // cbQuocGia
             // 
-            this.cbQuocGia.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbQuocGia.FormattingEnabled = true;
             this.cbQuocGia.Location = new System.Drawing.Point(111, 121);
-            this.cbQuocGia.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.cbQuocGia.Margin = new System.Windows.Forms.Padding(5);
             this.cbQuocGia.Name = "cbQuocGia";
             this.cbQuocGia.Size = new System.Drawing.Size(410, 28);
             this.cbQuocGia.TabIndex = 32;
@@ -226,38 +224,40 @@
             this.cbRapChieu.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbRapChieu.FormattingEnabled = true;
             this.cbRapChieu.Location = new System.Drawing.Point(702, 113);
-            this.cbRapChieu.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.cbRapChieu.Margin = new System.Windows.Forms.Padding(5);
             this.cbRapChieu.Name = "cbRapChieu";
             this.cbRapChieu.Size = new System.Drawing.Size(410, 28);
             this.cbRapChieu.TabIndex = 34;
             // 
-            // btThemNV
+            // btCapNhatNV
             // 
-            this.btThemNV.Location = new System.Drawing.Point(1131, 44);
-            this.btThemNV.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
-            this.btThemNV.Name = "btThemNV";
-            this.btThemNV.Size = new System.Drawing.Size(169, 46);
-            this.btThemNV.TabIndex = 38;
-            this.btThemNV.Text = "Cập Nhật TT NV";
-            this.btThemNV.UseVisualStyleBackColor = true;
+            this.btCapNhatNV.Location = new System.Drawing.Point(1131, 44);
+            this.btCapNhatNV.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            this.btCapNhatNV.Name = "btCapNhatNV";
+            this.btCapNhatNV.Size = new System.Drawing.Size(169, 46);
+            this.btCapNhatNV.TabIndex = 38;
+            this.btCapNhatNV.Text = "Cập Nhật TT NV";
+            this.btCapNhatNV.UseVisualStyleBackColor = true;
+            this.btCapNhatNV.Click += new System.EventHandler(this.btCapNhatNV_Click);
             // 
-            // button3
+            // btCapNhatRap
             // 
-            this.button3.Location = new System.Drawing.Point(1131, 103);
-            this.button3.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(169, 46);
-            this.button3.TabIndex = 36;
-            this.button3.Text = "Cập Nhật TT Rạp";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btCapNhatRap.Location = new System.Drawing.Point(1131, 103);
+            this.btCapNhatRap.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            this.btCapNhatRap.Name = "btCapNhatRap";
+            this.btCapNhatRap.Size = new System.Drawing.Size(169, 46);
+            this.btCapNhatRap.TabIndex = 36;
+            this.btCapNhatRap.Text = "Cập Nhật TT Rạp";
+            this.btCapNhatRap.UseVisualStyleBackColor = true;
+            this.btCapNhatRap.Click += new System.EventHandler(this.btCapNhatRap_Click);
             // 
             // frmPhim
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1304, 594);
-            this.Controls.Add(this.btThemNV);
-            this.Controls.Add(this.button3);
+            this.Controls.Add(this.btCapNhatNV);
+            this.Controls.Add(this.btCapNhatRap);
             this.Controls.Add(this.cbNhanVien);
             this.Controls.Add(this.cbRapChieu);
             this.Controls.Add(this.cbQuocGia);
@@ -277,7 +277,7 @@
             this.Controls.Add(this.tbTenPhim);
             this.Controls.Add(this.grvPhim);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.Margin = new System.Windows.Forms.Padding(5);
             this.Name = "frmPhim";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Phim";
@@ -296,7 +296,6 @@
         private System.Windows.Forms.Button btThemPhim;
         private System.Windows.Forms.Button btXoaPhim;
         private System.Windows.Forms.ComboBox cbNhanVien;
-        private System.Windows.Forms.TextBox tbIdPhim;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
@@ -308,8 +307,9 @@
         private System.Windows.Forms.ComboBox cbTheLoai;
         private System.Windows.Forms.ComboBox cbQuocGia;
         private System.Windows.Forms.ComboBox cbRapChieu;
-        private System.Windows.Forms.Button btThemNV;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btCapNhatNV;
+        private System.Windows.Forms.Button btCapNhatRap;
+        private System.Windows.Forms.TextBox tbIdPhim;
     }
 }
 

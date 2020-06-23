@@ -32,32 +32,70 @@ namespace PhimWFA
         {
             tbIdPhim.Text = "";
             tbTenPhim.Text = "";
-            cbTheLoai.Text = "";
-            cbQuocGia.Text = "";
-            cbNhanVien.Text = "";
-            cbRapChieu.Text = "";
+            cbTheLoai.Items.Clear();
+            cbQuocGia.Items.Clear();
+            cbNhanVien.Items.Clear();
+            cbRapChieu.Items.Clear();
             tbDiemDanhGia.Text = "";
         }
 
         private void btnThemPhim_Click(object sender, EventArgs e)
         {
             PhimDTO p = new PhimDTO();
-            p.Id = tbIdPhim.Text;
-            p.Ten = tbTenPhim.Text;
-            p.Theloai = cbTheLoai.Text;
-            p.Quocgia = cbQuocGia.Text;
-            p.DiemDanhGia = Convert.ToDouble(tbDiemDanhGia.Text);
 
-            obj.ThemPhim(p);
-            MessageBox.Show("Thêm phim thành công.");
+            if (tbIdPhim.Text.Length != 0)
+            {
+                try
+                {
+                    p.Id = tbIdPhim.Text;
+                    p.Ten = tbTenPhim.Text;
+                    p.Theloai = cbTheLoai.Text;
+                    p.Quocgia = cbQuocGia.Text;
+                    p.DiemDanhGia = Convert.ToDouble(tbDiemDanhGia.Text);
 
-            grvPhim.DataSource = obj.HienThiTatCaPhim();
-            XoaDuLieuDaNhap();
+                    obj.ThemPhim(p);
+                    MessageBox.Show("Thêm phim thành công.");
+                    XoaDuLieuDaNhap();
+
+                    grvPhim.DataSource = obj.HienThiTatCaPhim();
+
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Dữ liệu đã tồn tại hoặc không hợp lệ.");
+                    return;
+                    throw;
+                }
+            }
+            else
+            {
+                p.Id = tbIdPhim.Text;
+                p.Ten = tbTenPhim.Text;
+                p.Theloai = cbTheLoai.Text;
+                p.Quocgia = cbQuocGia.Text;
+                p.DiemDanhGia = Convert.ToDouble(tbDiemDanhGia.Text);
+
+                obj.ThemPhim(p);
+                MessageBox.Show("Thêm phim thành công.");
+
+                grvPhim.DataSource = obj.HienThiTatCaPhim();
+                XoaDuLieuDaNhap();
+
+            }
         }
         private void btXoaPhim_Click(object sender, EventArgs e)
         {
-            obj.XoaPhim(tbIdPhim.Text);
-            grvPhim.DataSource = obj.HienThiTatCaPhim();
+            if (tbIdPhim.Text != null)
+            {
+                obj.XoaPhim(tbIdPhim.Text);
+                grvPhim.DataSource = obj.HienThiTatCaPhim();
+                XoaDuLieuDaNhap();
+
+            }
+            else
+            {
+                MessageBox.Show("Hãy chọn phim cần xóa.");
+            }
         }
 
        
@@ -80,7 +118,7 @@ namespace PhimWFA
             }
             else
             {
-                MessageBox.Show("Hãy chọn phim bạn cần cập nhật.");
+                MessageBox.Show("Hãy chọn phim cần cập nhật.");
             }
         }
         private void grvPhim_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -119,10 +157,18 @@ namespace PhimWFA
             }
         }
 
-        private void btnLamMoiPhim_Click(object sender, EventArgs e)
+        private void btCapNhatNV_Click(object sender, EventArgs e)
         {
-            grvPhim.DataSource = obj.HienThiTatCaPhim();
+            string idPhim = tbIdPhim.Text;
+            frmCapNhatNV frmCapNhatNV = new frmCapNhatNV(idPhim);
+            frmCapNhatNV.Show();
         }
 
+        private void btCapNhatRap_Click(object sender, EventArgs e)
+        {
+            string idPhim = tbIdPhim.Text;
+            frmCapNhatRap frmCapNhatRap = new frmCapNhatRap(idPhim);
+            frmCapNhatRap.Show();
+        }
     }
 }

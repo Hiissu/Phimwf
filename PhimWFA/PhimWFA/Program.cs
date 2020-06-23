@@ -16,7 +16,7 @@ namespace PhimWFA
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmPhim());
+            Application.Run(new frmHome());
         }
     }
 }

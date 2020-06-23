@@ -22,11 +22,6 @@ namespace PhimWFA.BLL
             return obj_rap.HienThiTatCaRap();
         }
 
-        public RapDTO HienThiTTRap(object idRap)
-        {
-            return obj_rap.HienThiTTRap(idRap);
-        }
-
         public void ThemRap(RapDTO obj)
         {
             obj_rap.ThemRap(obj);

@@ -51,5 +51,23 @@ namespace PhimWFA.BLL
         {
             obj_phim.XoaTatCaPhim();
         }
+
+        public void XoaNhanVien(string idPhim)
+        {
+            obj_phim.XoaNhanVien(idPhim);
+        }
+        public void CapNhatNhanVien(string idPhim, string idNhanVien)
+        {
+            obj_phim.CapNhatNhanVien(idPhim, idNhanVien);
+        }
+
+        public void XoaRap(string idPhim)
+        {
+            obj_phim.XoaRap(idPhim);
+        }
+        public void CapNhatRap(string idPhim, string idRap)
+        {
+            obj_phim.CapNhatRap(idPhim, idRap);
+        }
     }
 }
